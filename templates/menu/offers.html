@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Offers — Food Junction{% endblock %}
+{% block page_id %}offers{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Deals &amp; Discounts</span>
+    <h1 class="section-title">Current Offers</h1>
+    <p class="section-desc" style="max-width:560px;">Apply these codes at checkout — discounts are calculated automatically.</p>
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a> / Offers</div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="offer-grid">
+      {% for offer in offers %}
+      <div class="offer-card reveal">
+        <div class="pct">{{ offer.discount_percent }}%</div>
+        <h4>{{ offer.title }}</h4>
+        <p>{{ offer.description }}</p>
+        <span class="code">CODE: {{ offer.code }}</span>
+      </div>
+      {% empty %}
+      <p style="color:var(--cream-dim);">No active offers right now — check back soon.</p>
+      {% endfor %}
+      <div class="offer-card reveal">
+        <div class="pct">FREE</div>
+        <h4>Free Delivery</h4>
+        <p>Every order above ₹499 gets free delivery, no code needed — it's applied automatically in your cart.</p>
+        <span class="code">AUTO-APPLIED</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight" style="background:var(--charcoal-2);">
+  <div class="container">
+    <div class="offer-banner reveal-scale">
+      <div>
+        <span class="eyebrow">Combo Value</span>
+        <h3 style="font-size:26px;margin-top:12px;max-width:480px;">Try a Parantha Combo or Pizza Combo — curd, butter, fries and a cold drink, all bundled in.</h3>
+        <a href="{% url 'menu' %}" class="btn btn-primary" style="margin-top:24px;">Browse Combos</a>
+      </div>
+      <div class="offer-badge">COMBO</div>
+    </div>
+  </div>
+</section>
+{% endblock %}

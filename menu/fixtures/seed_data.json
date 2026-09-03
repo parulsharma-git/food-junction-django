@@ -1,0 +1,1534 @@
+{
+  "groups": [
+    {
+      "slug": "paranthas",
+      "name": "Paranthas & Chilla",
+      "tagline": "Hand-rolled, tawa-fresh",
+      "icon": "roti"
+    },
+    {
+      "slug": "wraps",
+      "name": "Wraps & Rolls",
+      "tagline": "Rolled, stuffed, devoured",
+      "icon": "wrap"
+    },
+    {
+      "slug": "momos",
+      "name": "Momos",
+      "tagline": "Steamed or fried, 8 pcs",
+      "icon": "momo"
+    },
+    {
+      "slug": "burgers",
+      "name": "Burgers",
+      "tagline": "Stacked & pressed to order",
+      "icon": "burger"
+    },
+    {
+      "slug": "pizza",
+      "name": "Pizza",
+      "tagline": "Stone-baked, 8\" or 10\"",
+      "icon": "pizza"
+    },
+    {
+      "slug": "sandwiches",
+      "name": "Sandwiches & Gym Food",
+      "tagline": "Grilled brown-bread stacks",
+      "icon": "sandwich"
+    },
+    {
+      "slug": "snacks",
+      "name": "Snacks & Fries",
+      "tagline": "Crispy, golden, shareable",
+      "icon": "fries"
+    },
+    {
+      "slug": "maggi-pasta",
+      "name": "Maggi & Pasta",
+      "tagline": "Comfort in a bowl",
+      "icon": "noodles"
+    },
+    {
+      "slug": "south",
+      "name": "South Indian & More",
+      "tagline": "Idli, pav bhaji, poha",
+      "icon": "idli"
+    },
+    {
+      "slug": "drinks",
+      "name": "Beverages & Shakes",
+      "tagline": "Thick, cold, indulgent",
+      "icon": "shake"
+    }
+  ],
+  "menu": [
+    {
+      "id": "p1",
+      "name": "Ajwain Parantha",
+      "cat": "Paranthas",
+      "group": "paranthas",
+      "veg": true,
+      "price": 40,
+      "desc": "Whole-wheat flatbread laced with carom seeds, griddle-crisped in ghee."
+    },
+    {
+      "id": "p2",
+      "name": "Aloo Parantha",
+      "cat": "Paranthas",
+      "group": "paranthas",
+      "veg": true,
+      "price": 50,
+      "tag": "bestseller",
+      "desc": "Classic spiced potato stuffing, folded and tawa-toasted till golden."
+    },
+    {
+      "id": "p3",
+      "name": "Gobi Parantha",
+      "cat": "Paranthas",
+      "group": "paranthas",
+      "veg": true,
+      "price": 50,
+      "desc": "Shredded cauliflower and green chilli stuffed into a buttery flatbread."
+    },
+    {
+      "id": "p4",
+      "name": "Onion Parantha",
+      "cat": "Paranthas",
+      "group": "paranthas",
+      "veg": true,
+      "price": 50,
+      "desc": "Caramelised onion stuffing with a hint of ajwain and coriander."
+    },
+    {
+      "id": "p5",
+      "name": "Mix Veg Parantha",
+      "cat": "Paranthas",
+      "group": "paranthas",
+      "veg": true,
+      "price": 70,
+      "desc": "A medley of seasonal vegetables packed into every fold."
+    },
+    {
+      "id": "p6",
+      "name": "Broccoli Parantha",
+      "cat": "Paranthas",
+      "group": "paranthas",
+      "veg": true,
+      "price": 80,
+      "tag": "new",
+      "desc": "A modern twist — finely grated broccoli, garlic and mild spice."
+    },
+    {
+      "id": "p7",
+      "name": "Paneer Parantha",
+      "cat": "Paranthas",
+      "group": "paranthas",
+      "veg": true,
+      "price": 80,
+      "tag": "bestseller",
+      "desc": "Crumbled cottage cheese, green chilli and coriander, ghee-roasted."
+    },
+    {
+      "id": "pc1",
+      "name": "2 Aloo Parantha with Curd & Amul Butter",
+      "cat": "Parantha Combo",
+      "group": "paranthas",
+      "veg": true,
+      "price": 130,
+      "desc": "Two aloo paranthas served with chilled curd and a slab of Amul butter."
+    },
+    {
+      "id": "pc2",
+      "name": "2 Gobi Parantha with Curd & Amul Butter",
+      "cat": "Parantha Combo",
+      "group": "paranthas",
+      "veg": true,
+      "price": 130,
+      "desc": "Two gobi paranthas with curd and Amul butter on the side."
+    },
+    {
+      "id": "pc3",
+      "name": "2 Onion Parantha with Curd & Amul Butter",
+      "cat": "Parantha Combo",
+      "group": "paranthas",
+      "veg": true,
+      "price": 130,
+      "desc": "Two onion paranthas, curd and butter — a full breakfast plate."
+    },
+    {
+      "id": "pc4",
+      "name": "2 Mix Veg Parantha with Curd & Amul Butter",
+      "cat": "Parantha Combo",
+      "group": "paranthas",
+      "veg": true,
+      "price": 170,
+      "desc": "Two mix-veg paranthas with curd and Amul butter."
+    },
+    {
+      "id": "pc5",
+      "name": "2 Paneer Parantha with Curd & Amul Butter",
+      "cat": "Parantha Combo",
+      "group": "paranthas",
+      "veg": true,
+      "price": 190,
+      "tag": "bestseller",
+      "desc": "Two paneer paranthas, thick curd and Amul butter — the full works."
+    },
+    {
+      "id": "ch1",
+      "name": "Besan Chilla",
+      "cat": "Chilla",
+      "group": "paranthas",
+      "veg": true,
+      "price": 50,
+      "desc": "Savoury gram-flour crepe, griddle-cooked with onion and spice."
+    },
+    {
+      "id": "ch2",
+      "name": "Oats Chilla",
+      "cat": "Chilla",
+      "group": "paranthas",
+      "veg": true,
+      "price": 60,
+      "desc": "A lighter, high-fibre take on the classic chilla."
+    },
+    {
+      "id": "ch3",
+      "name": "Besan Paneer Chilla",
+      "cat": "Chilla",
+      "group": "paranthas",
+      "veg": true,
+      "price": 80,
+      "desc": "Gram-flour crepe folded with soft paneer cubes."
+    },
+    {
+      "id": "ch4",
+      "name": "Beetroot Besan Paneer Chilla",
+      "cat": "Chilla",
+      "group": "paranthas",
+      "veg": true,
+      "price": 90,
+      "tag": "new",
+      "desc": "Beetroot-flushed batter with paneer — earthy, colourful, wholesome."
+    },
+    {
+      "id": "ch5",
+      "name": "Oats Paneer Chilla",
+      "cat": "Chilla",
+      "group": "paranthas",
+      "veg": true,
+      "price": 90,
+      "desc": "Oats batter loaded with paneer for a protein-rich bite."
+    },
+    {
+      "id": "w1",
+      "name": "Aloo Tikki Wrap Roll",
+      "cat": "Wraps - Veg",
+      "group": "wraps",
+      "veg": true,
+      "price": 100,
+      "desc": "Crushed potato tikki, chutneys and onions rolled tight."
+    },
+    {
+      "id": "w2",
+      "name": "Chilli Paneer Wrap Roll",
+      "cat": "Wraps - Veg",
+      "group": "wraps",
+      "veg": true,
+      "price": 120,
+      "tag": "spicy",
+      "desc": "Indo-Chinese chilli paneer tossed in a tangy sauce, wrapped fresh."
+    },
+    {
+      "id": "w3",
+      "name": "Tandoori Paneer Wrap Roll",
+      "cat": "Wraps - Veg",
+      "group": "wraps",
+      "veg": true,
+      "price": 120,
+      "desc": "Char-grilled tandoori paneer with mint mayo and onions."
+    },
+    {
+      "id": "w4",
+      "name": "Veg Exotic Wrap Roll",
+      "cat": "Wraps - Veg",
+      "group": "wraps",
+      "veg": true,
+      "price": 120,
+      "desc": "Crisp vegetables and exotic sauces in a soft rumali wrap."
+    },
+    {
+      "id": "w5",
+      "name": "Paneer Makhani Wrap Roll",
+      "cat": "Wraps - Veg",
+      "group": "wraps",
+      "veg": true,
+      "price": 130,
+      "desc": "Rich makhani-glazed paneer rolled with fresh onions."
+    },
+    {
+      "id": "w6",
+      "name": "Falafel Kabab Wrap Roll",
+      "cat": "Wraps - Veg",
+      "group": "wraps",
+      "veg": true,
+      "price": 130,
+      "desc": "Crisp falafel kababs with tahini-style sauce, rolled fresh."
+    },
+    {
+      "id": "w7",
+      "name": "Crispy Paneer Patty Wrap Roll",
+      "cat": "Wraps - Veg",
+      "group": "wraps",
+      "veg": true,
+      "price": 150,
+      "desc": "Crumb-fried paneer patty, sauces and slaw in a soft wrap."
+    },
+    {
+      "id": "w8",
+      "name": "Veg Grilled Seekh Kabab Wrap Roll",
+      "cat": "Wraps - Veg",
+      "group": "wraps",
+      "veg": true,
+      "price": 150,
+      "tag": "bestseller",
+      "desc": "Grilled vegetable seekh kabab rolled with mint chutney."
+    },
+    {
+      "id": "wn1",
+      "name": "Chicken Patty Wrap Roll",
+      "cat": "Wraps - Non-Veg",
+      "group": "wraps",
+      "veg": false,
+      "price": 130,
+      "desc": "Juicy chicken patty, sauces and onions in a soft wrap."
+    },
+    {
+      "id": "wn2",
+      "name": "Crispy Chicken Wrap Roll",
+      "cat": "Wraps - Non-Veg",
+      "group": "wraps",
+      "veg": false,
+      "price": 150,
+      "tag": "bestseller",
+      "desc": "Crunchy fried chicken strips rolled with slaw and sauce."
+    },
+    {
+      "id": "wn3",
+      "name": "Tandoori Chicken Seekh Kabab Wrap Roll",
+      "cat": "Wraps - Non-Veg",
+      "group": "wraps",
+      "veg": false,
+      "price": 180,
+      "desc": "Smoky tandoor-grilled chicken seekh kabab, rolled fresh."
+    },
+    {
+      "id": "wn4",
+      "name": "Hot & Spicy Chicken Seekh Kabab Wrap Roll",
+      "cat": "Wraps - Non-Veg",
+      "group": "wraps",
+      "veg": false,
+      "price": 180,
+      "tag": "spicy",
+      "desc": "Fiery chicken seekh kabab for the heat-seekers."
+    },
+    {
+      "id": "wn5",
+      "name": "Paprika Grilled Chicken Patty Wrap Roll",
+      "cat": "Wraps - Non-Veg",
+      "group": "wraps",
+      "veg": false,
+      "price": 180,
+      "desc": "Paprika-rubbed grilled chicken patty, rolled with fresh veg."
+    },
+    {
+      "id": "wn6",
+      "name": "Paprika Grilled Mutton Patty Wrap Roll",
+      "cat": "Wraps - Non-Veg",
+      "group": "wraps",
+      "veg": false,
+      "price": 200,
+      "desc": "Smoky paprika mutton patty wrapped with onions and sauce."
+    },
+    {
+      "id": "nv1",
+      "name": "Crispy Chicken Popcorn (10 pcs)",
+      "cat": "Non-Veg Snacks",
+      "group": "snacks",
+      "veg": false,
+      "price": 100,
+      "tag": "bestseller",
+      "desc": "Bite-sized crispy fried chicken poppers, ten pieces."
+    },
+    {
+      "id": "nv2",
+      "name": "Chicken Tandoori Grilled Seekh Kabab (2 pcs × 50g)",
+      "cat": "Non-Veg Snacks",
+      "group": "snacks",
+      "veg": false,
+      "price": 90,
+      "desc": "Tandoor-charred chicken seekh kabab skewers."
+    },
+    {
+      "id": "nv3",
+      "name": "Hot & Spicy Chicken Grilled Seekh Kabab (2 pcs × 100g)",
+      "cat": "Non-Veg Snacks",
+      "group": "snacks",
+      "veg": false,
+      "price": 160,
+      "tag": "spicy",
+      "desc": "Larger, fierier seekh kabab skewers off the grill."
+    },
+    {
+      "id": "nv4",
+      "name": "Crispy Chicken Fingers (10 pc)",
+      "cat": "Non-Veg Snacks",
+      "group": "snacks",
+      "veg": false,
+      "price": 200,
+      "desc": "Golden, crumb-fried chicken fingers, ten pieces."
+    },
+    {
+      "id": "nv5",
+      "name": "Crispy Chicken Nuggets (10 pc)",
+      "cat": "Non-Veg Snacks",
+      "group": "snacks",
+      "veg": false,
+      "price": 200,
+      "desc": "Classic crispy chicken nuggets, ten pieces."
+    },
+    {
+      "id": "nv6",
+      "name": "Crispy Chicken Strips (6 pcs / 250g)",
+      "cat": "Non-Veg Snacks",
+      "group": "snacks",
+      "veg": false,
+      "price": 220,
+      "desc": "Thick-cut crispy chicken strips, six pieces."
+    },
+    {
+      "id": "nv7",
+      "name": "Paprika Grilled Chicken Chops (100g)",
+      "cat": "Non-Veg Snacks",
+      "group": "snacks",
+      "veg": false,
+      "price": 100,
+      "desc": "Paprika-rubbed grilled chicken chop."
+    },
+    {
+      "id": "nv8",
+      "name": "Paprika Grilled Mutton Chops (100g)",
+      "cat": "Non-Veg Snacks",
+      "group": "snacks",
+      "veg": false,
+      "price": 120,
+      "desc": "Smoky grilled mutton chop, paprika-spiced."
+    },
+    {
+      "id": "mv1",
+      "name": "Veg Momos",
+      "cat": "Momos - Veg",
+      "group": "momos",
+      "veg": true,
+      "price": 80,
+      "desc": "Steamed dumplings packed with finely chopped vegetables. 8 pcs."
+    },
+    {
+      "id": "mv2",
+      "name": "Veg Fried Momos",
+      "cat": "Momos - Veg",
+      "group": "momos",
+      "veg": true,
+      "price": 100,
+      "desc": "Pan-fried till crisp on the base. 8 pcs."
+    },
+    {
+      "id": "mv3",
+      "name": "Paneer Momos",
+      "cat": "Momos - Veg",
+      "group": "momos",
+      "veg": true,
+      "price": 120,
+      "tag": "bestseller",
+      "desc": "Steamed dumplings stuffed with spiced paneer. 8 pcs."
+    },
+    {
+      "id": "mv4",
+      "name": "Paneer Fried Momos",
+      "cat": "Momos - Veg",
+      "group": "momos",
+      "veg": true,
+      "price": 140,
+      "desc": "Crisp-fried paneer momos. 8 pcs."
+    },
+    {
+      "id": "mv5",
+      "name": "Veg Kurkure Momos",
+      "cat": "Momos - Veg",
+      "group": "momos",
+      "veg": true,
+      "price": 120,
+      "tag": "spicy",
+      "desc": "Crunch-coated veg momos, deep-fried golden. 8 pcs."
+    },
+    {
+      "id": "mv6",
+      "name": "Paneer Kurkure Momos",
+      "cat": "Momos - Veg",
+      "group": "momos",
+      "veg": true,
+      "price": 160,
+      "desc": "Crunch-coated paneer momos with a fiery dip. 8 pcs."
+    },
+    {
+      "id": "mv7",
+      "name": "Cheese Corn Momos",
+      "cat": "Momos - Veg",
+      "group": "momos",
+      "veg": true,
+      "price": 160,
+      "desc": "Molten cheese and sweetcorn stuffed dumplings. 8 pcs."
+    },
+    {
+      "id": "mn1",
+      "name": "Chicken Momos",
+      "cat": "Momos - Non-Veg",
+      "group": "momos",
+      "veg": false,
+      "price": 140,
+      "tag": "bestseller",
+      "desc": "Steamed chicken dumplings with a spicy schezwan dip. 8 pcs."
+    },
+    {
+      "id": "mn2",
+      "name": "Chicken Fried Momos",
+      "cat": "Momos - Non-Veg",
+      "group": "momos",
+      "veg": false,
+      "price": 160,
+      "desc": "Pan-fried chicken momos, crisp at the base. 8 pcs."
+    },
+    {
+      "id": "vs1",
+      "name": "Cheese Cigar Roll (2 pcs)",
+      "cat": "Veg Snacks",
+      "group": "snacks",
+      "veg": true,
+      "price": 60,
+      "desc": "Thin, crisp rolls oozing with melted cheese."
+    },
+    {
+      "id": "vs2",
+      "name": "Crispy Veggies Fingers (6 pcs)",
+      "cat": "Veg Snacks",
+      "group": "snacks",
+      "veg": true,
+      "price": 90,
+      "desc": "Crumb-fried vegetable fingers, six pieces."
+    },
+    {
+      "id": "vs3",
+      "name": "Cheese Corn Triangles (5 pcs)",
+      "cat": "Veg Snacks",
+      "group": "snacks",
+      "veg": true,
+      "price": 100,
+      "desc": "Golden triangles stuffed with cheese and sweetcorn."
+    },
+    {
+      "id": "vs4",
+      "name": "Cheese Corn Nuggets (5 pcs)",
+      "cat": "Veg Snacks",
+      "group": "snacks",
+      "veg": true,
+      "price": 100,
+      "desc": "Bite-sized cheese and corn nuggets, fried crisp."
+    },
+    {
+      "id": "vs5",
+      "name": "Veg Seekh Kabab (2 pcs)",
+      "cat": "Veg Snacks",
+      "group": "snacks",
+      "veg": true,
+      "price": 60,
+      "desc": "Spiced vegetable seekh kababs, grilled."
+    },
+    {
+      "id": "vs6",
+      "name": "Hara Bhara Kabab (10 pcs)",
+      "cat": "Veg Snacks",
+      "group": "snacks",
+      "veg": true,
+      "price": 120,
+      "tag": "bestseller",
+      "desc": "Spinach and green-pea kababs, shallow fried."
+    },
+    {
+      "id": "vs7",
+      "name": "Falafel Kabab (10 pcs)",
+      "cat": "Veg Snacks",
+      "group": "snacks",
+      "veg": true,
+      "price": 120,
+      "desc": "Crisp chickpea falafel, ten pieces."
+    },
+    {
+      "id": "vs8",
+      "name": "Chilli Garlic Potato Balls (25 pcs)",
+      "cat": "Veg Snacks",
+      "group": "snacks",
+      "veg": true,
+      "price": 120,
+      "tag": "spicy",
+      "desc": "Punchy chilli-garlic potato bites, party-sized portion."
+    },
+    {
+      "id": "sw1",
+      "name": "Veggies Grilled Sandwich",
+      "cat": "Sandwiches - Veg",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 100,
+      "desc": "Loaded vegetable grilled sandwich on brown bread, 4 slices."
+    },
+    {
+      "id": "sw2",
+      "name": "Veggies Cheese Grilled Sandwich",
+      "cat": "Sandwiches - Veg",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 120,
+      "desc": "Vegetables and melted cheese, grilled to order."
+    },
+    {
+      "id": "sw3",
+      "name": "Veggies Paneer Grilled Sandwich",
+      "cat": "Sandwiches - Veg",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 120,
+      "desc": "Paneer and fresh vegetables, grilled brown-bread sandwich."
+    },
+    {
+      "id": "sw4",
+      "name": "Veggies Paneer Cheese Grilled Sandwich",
+      "cat": "Sandwiches - Veg",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 150,
+      "tag": "bestseller",
+      "desc": "The loaded version — paneer, cheese and vegetables."
+    },
+    {
+      "id": "sw5",
+      "name": "Tandoori Paneer Grilled Sandwich",
+      "cat": "Sandwiches - Veg",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 120,
+      "desc": "Tandoori-spiced paneer, grilled between brown bread."
+    },
+    {
+      "id": "sw6",
+      "name": "Peri Peri Paneer Grilled Sandwich",
+      "cat": "Sandwiches - Veg",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 120,
+      "tag": "spicy",
+      "desc": "Peri peri paneer with a fiery kick, grilled fresh."
+    },
+    {
+      "id": "sw7",
+      "name": "Paneer Makhani Grilled Sandwich",
+      "cat": "Sandwiches - Veg",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 130,
+      "desc": "Rich makhani paneer filling, grilled to a crisp."
+    },
+    {
+      "id": "sw8",
+      "name": "Club Sandwich",
+      "cat": "Sandwiches - Veg",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 140,
+      "desc": "Triple-layered classic club sandwich, brown bread."
+    },
+    {
+      "id": "swn1",
+      "name": "Spl. Loaded Chicken Grilled Sandwich",
+      "cat": "Sandwiches - Non-Veg",
+      "group": "sandwiches",
+      "veg": false,
+      "price": 200,
+      "tag": "bestseller",
+      "desc": "Our signature loaded chicken sandwich, grilled brown bread."
+    },
+    {
+      "id": "swn2",
+      "name": "Paprika Mutton Grilled Sandwich",
+      "cat": "Sandwiches - Non-Veg",
+      "group": "sandwiches",
+      "veg": false,
+      "price": 250,
+      "desc": "Paprika-spiced mutton, grilled between brown bread."
+    },
+    {
+      "id": "g1",
+      "name": "High Protein Besan Paneer Chilla",
+      "cat": "Gym Lover Food",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 90,
+      "desc": "Protein-forward besan and paneer chilla, no compromise on taste."
+    },
+    {
+      "id": "g2",
+      "name": "High Protein Veggies Paneer Sandwich (4 Slices)",
+      "cat": "Gym Lover Food",
+      "group": "sandwiches",
+      "veg": true,
+      "price": 120,
+      "desc": "Lean, loaded and grilled — built for macros."
+    },
+    {
+      "id": "g3",
+      "name": "High Protein Chicken Sandwich (4 Slices)",
+      "cat": "Gym Lover Food",
+      "group": "sandwiches",
+      "veg": false,
+      "price": 200,
+      "tag": "bestseller",
+      "desc": "Grilled chicken breast piled high on brown bread."
+    },
+    {
+      "id": "g4",
+      "name": "High Protein Mutton Sandwich (4 Slices)",
+      "cat": "Gym Lover Food",
+      "group": "sandwiches",
+      "veg": false,
+      "price": 250,
+      "desc": "Lean mutton, grilled and stacked for a post-workout refuel."
+    },
+    {
+      "id": "b1",
+      "name": "Aloo Tikki Burger",
+      "cat": "Veg Burgers",
+      "group": "burgers",
+      "veg": true,
+      "price": 50,
+      "desc": "Classic spiced potato tikki patty in a soft bun."
+    },
+    {
+      "id": "b2",
+      "name": "Crispy Veg Burger with Fries",
+      "cat": "Veg Burgers",
+      "group": "burgers",
+      "veg": true,
+      "price": 80,
+      "desc": "Crunchy vegetable patty burger, served with a side of fries."
+    },
+    {
+      "id": "b3",
+      "name": "Crispy Veg Cheese Burger",
+      "cat": "Veg Burgers",
+      "group": "burgers",
+      "veg": true,
+      "price": 100,
+      "desc": "Crispy veg patty layered with melted cheese."
+    },
+    {
+      "id": "b4",
+      "name": "Double Decker Veg Burger with Fries",
+      "cat": "Veg Burgers",
+      "group": "burgers",
+      "veg": true,
+      "price": 120,
+      "tag": "bestseller",
+      "desc": "Two veg patties stacked high, served with fries."
+    },
+    {
+      "id": "b5",
+      "name": "Double Decker Cheese Burger with Fries",
+      "cat": "Veg Burgers",
+      "group": "burgers",
+      "veg": true,
+      "price": 120,
+      "desc": "Double patty, double cheese, served with fries."
+    },
+    {
+      "id": "b6",
+      "name": "Crispy Paneer Patty Burger with Fries",
+      "cat": "Veg Burgers",
+      "group": "burgers",
+      "veg": true,
+      "price": 120,
+      "desc": "Crumb-fried paneer patty burger with a side of fries."
+    },
+    {
+      "id": "b7",
+      "name": "Melted Cheese Patty Burger with Fries",
+      "cat": "Veg Burgers",
+      "group": "burgers",
+      "veg": true,
+      "price": 110,
+      "desc": "Oozing melted-cheese patty burger, served with fries."
+    },
+    {
+      "id": "bn1",
+      "name": "Chicken Patty Burger with Fries",
+      "cat": "Non-Veg Burgers",
+      "group": "burgers",
+      "veg": false,
+      "price": 130,
+      "desc": "Juicy chicken patty burger with a side of fries."
+    },
+    {
+      "id": "bn2",
+      "name": "Crispy Chicken Burger with Fries",
+      "cat": "Non-Veg Burgers",
+      "group": "burgers",
+      "veg": false,
+      "price": 150,
+      "tag": "bestseller",
+      "desc": "Crunchy fried chicken burger, served with fries."
+    },
+    {
+      "id": "bn3",
+      "name": "Paprika Chicken Patty Burger with Fries",
+      "cat": "Non-Veg Burgers",
+      "group": "burgers",
+      "veg": false,
+      "price": 180,
+      "desc": "Paprika-spiced chicken patty burger with fries."
+    },
+    {
+      "id": "bn4",
+      "name": "Paprika Mutton Patty Burger with Fries",
+      "cat": "Non-Veg Burgers",
+      "group": "burgers",
+      "veg": false,
+      "price": 200,
+      "desc": "Smoky paprika mutton patty burger, served with fries."
+    },
+    {
+      "id": "bc1",
+      "name": "Crispy Veg Burger",
+      "cat": "Veg Burger Combo",
+      "group": "burgers",
+      "veg": true,
+      "price": 120,
+      "desc": "Crispy veg burger, combo pricing."
+    },
+    {
+      "id": "bc2",
+      "name": "Crispy Veg Cheese Burger",
+      "cat": "Veg Burger Combo",
+      "group": "burgers",
+      "veg": true,
+      "price": 140,
+      "desc": "Crispy veg cheese burger, combo pricing."
+    },
+    {
+      "id": "bc3",
+      "name": "Crispy Paneer Patty Burger",
+      "cat": "Veg Burger Combo",
+      "group": "burgers",
+      "veg": true,
+      "price": 160,
+      "desc": "Crispy paneer patty burger, combo pricing."
+    },
+    {
+      "id": "bc4",
+      "name": "Double Decker Veg Burger",
+      "cat": "Veg Burger Combo",
+      "group": "burgers",
+      "veg": true,
+      "price": 160,
+      "desc": "Double decker veg burger, combo pricing."
+    },
+    {
+      "id": "bcn1",
+      "name": "Chicken Patty Burger",
+      "cat": "Non-Veg Burger Combo",
+      "group": "burgers",
+      "veg": false,
+      "price": 170,
+      "desc": "Chicken patty burger, combo pricing."
+    },
+    {
+      "id": "bcn2",
+      "name": "Crispy Chicken Burger",
+      "cat": "Non-Veg Burger Combo",
+      "group": "burgers",
+      "veg": false,
+      "price": 190,
+      "desc": "Crispy chicken burger, combo pricing."
+    },
+    {
+      "id": "bcn3",
+      "name": "Paprika Chicken Patty Burger",
+      "cat": "Non-Veg Burger Combo",
+      "group": "burgers",
+      "veg": false,
+      "price": 220,
+      "desc": "Paprika chicken patty burger, combo pricing."
+    },
+    {
+      "id": "bcn4",
+      "name": "Paprika Mutton Patty Burger",
+      "cat": "Non-Veg Burger Combo",
+      "group": "burgers",
+      "veg": false,
+      "price": 240,
+      "desc": "Paprika mutton patty burger, combo pricing."
+    },
+    {
+      "id": "pz1",
+      "name": "Cheese Corn Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 120
+        },
+        {
+          "label": "10\"",
+          "price": 230
+        }
+      ],
+      "desc": "Molten mozzarella and sweetcorn on a stone-baked base."
+    },
+    {
+      "id": "pz2",
+      "name": "Onion Capsicum Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 120
+        },
+        {
+          "label": "10\"",
+          "price": 230
+        }
+      ],
+      "desc": "Classic onion and capsicum, cheese-loaded."
+    },
+    {
+      "id": "pz3",
+      "name": "Onion Corn Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 120
+        },
+        {
+          "label": "10\"",
+          "price": 230
+        }
+      ],
+      "desc": "Sweet corn and onion over a cheesy tomato base."
+    },
+    {
+      "id": "pz4",
+      "name": "Tomato Corn Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 120
+        },
+        {
+          "label": "10\"",
+          "price": 230
+        }
+      ],
+      "desc": "Juicy tomato and corn, finished with mozzarella."
+    },
+    {
+      "id": "pz5",
+      "name": "Margherita Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 130
+        },
+        {
+          "label": "10\"",
+          "price": 250
+        }
+      ],
+      "tag": "bestseller",
+      "desc": "The purist's pizza — tomato, basil and mozzarella."
+    },
+    {
+      "id": "pz6",
+      "name": "Mushroom Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 130
+        },
+        {
+          "label": "10\"",
+          "price": 250
+        }
+      ],
+      "desc": "Sautéed mushrooms over a cheesy base."
+    },
+    {
+      "id": "pz7",
+      "name": "Tandoori Paneer Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 150
+        },
+        {
+          "label": "10\"",
+          "price": 280
+        }
+      ],
+      "desc": "Tandoori-charred paneer, onions and peppers."
+    },
+    {
+      "id": "pz8",
+      "name": "Paneer Makhani Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 150
+        },
+        {
+          "label": "10\"",
+          "price": 280
+        }
+      ],
+      "desc": "Rich makhani paneer over a mozzarella base."
+    },
+    {
+      "id": "pz9",
+      "name": "Farmhouse Cheese Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 150
+        },
+        {
+          "label": "10\"",
+          "price": 280
+        }
+      ],
+      "desc": "Loaded farmhouse vegetables, extra cheese."
+    },
+    {
+      "id": "pz10",
+      "name": "Spl. Veg Loaded Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 160
+        },
+        {
+          "label": "10\"",
+          "price": 300
+        }
+      ],
+      "tag": "bestseller",
+      "desc": "Our fully-loaded specialty vegetable pizza."
+    },
+    {
+      "id": "pz11",
+      "name": "Peri Peri Paneer Pizza",
+      "cat": "Veg Pizza",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 150
+        },
+        {
+          "label": "10\"",
+          "price": 280
+        }
+      ],
+      "tag": "spicy",
+      "desc": "Peri peri paneer with a fiery finishing drizzle."
+    },
+    {
+      "id": "pzn1",
+      "name": "Spicy Peri Peri Chicken Pizza",
+      "cat": "Non-Veg Pizza",
+      "group": "pizza",
+      "veg": false,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 200
+        },
+        {
+          "label": "10\"",
+          "price": 380
+        }
+      ],
+      "tag": "spicy",
+      "desc": "Peri peri chicken, cheese-loaded, fired hot."
+    },
+    {
+      "id": "pzn2",
+      "name": "Spl. Loaded Chicken Pizza",
+      "cat": "Non-Veg Pizza",
+      "group": "pizza",
+      "veg": false,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 220
+        },
+        {
+          "label": "10\"",
+          "price": 400
+        }
+      ],
+      "tag": "bestseller",
+      "desc": "Our signature loaded chicken pizza."
+    },
+    {
+      "id": "pzn3",
+      "name": "Paprika Mutton Pizza",
+      "cat": "Non-Veg Pizza",
+      "group": "pizza",
+      "veg": false,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 250
+        },
+        {
+          "label": "10\"",
+          "price": 450
+        }
+      ],
+      "desc": "Paprika-spiced mutton over a cheese-loaded base."
+    },
+    {
+      "id": "pzc1",
+      "name": "Tandoori Paneer Pizza Combo",
+      "cat": "Pizza Combo",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 190
+        },
+        {
+          "label": "10\"",
+          "price": 360
+        }
+      ],
+      "desc": "Tandoori paneer pizza with fries and a cold drink."
+    },
+    {
+      "id": "pzc2",
+      "name": "Chilli Paneer Pizza Combo",
+      "cat": "Pizza Combo",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 190
+        },
+        {
+          "label": "10\"",
+          "price": 360
+        }
+      ],
+      "desc": "Chilli paneer pizza with fries and a cold drink."
+    },
+    {
+      "id": "pzc3",
+      "name": "Spl. Veg Makhani Pizza Combo",
+      "cat": "Pizza Combo",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 190
+        },
+        {
+          "label": "10\"",
+          "price": 360
+        }
+      ],
+      "desc": "Veg makhani pizza with fries and a cold drink."
+    },
+    {
+      "id": "pzc4",
+      "name": "Spl. Veg Loaded Pizza Combo",
+      "cat": "Pizza Combo",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 190
+        },
+        {
+          "label": "10\"",
+          "price": 380
+        }
+      ],
+      "desc": "Fully-loaded veg pizza with fries and a cold drink."
+    },
+    {
+      "id": "pzc5",
+      "name": "Farm House Pizza Combo",
+      "cat": "Pizza Combo",
+      "group": "pizza",
+      "veg": true,
+      "sizes": [
+        {
+          "label": "8\"",
+          "price": 200
+        },
+        {
+          "label": "10\"",
+          "price": 380
+        }
+      ],
+      "desc": "Farmhouse pizza with fries and a cold drink."
+    },
+    {
+      "id": "mg1",
+      "name": "Simple Maggi",
+      "cat": "Maggi",
+      "group": "maggi-pasta",
+      "veg": true,
+      "price": 60,
+      "desc": "Classic masala maggi, tawa-tossed."
+    },
+    {
+      "id": "mg2",
+      "name": "Veggies Blast Maggi",
+      "cat": "Maggi",
+      "group": "maggi-pasta",
+      "veg": true,
+      "price": 80,
+      "desc": "Maggi loaded with crunchy mixed vegetables."
+    },
+    {
+      "id": "mg3",
+      "name": "Veg Melted Cheese Maggi",
+      "cat": "Maggi",
+      "group": "maggi-pasta",
+      "veg": true,
+      "price": 100,
+      "tag": "bestseller",
+      "desc": "Maggi drowned in melted cheese and vegetables."
+    },
+    {
+      "id": "pa1",
+      "name": "Red Sauce Cheesy Pasta",
+      "cat": "Pasta",
+      "group": "maggi-pasta",
+      "veg": true,
+      "price": 150,
+      "desc": "Penne tossed in a tangy tomato sauce, finished with cheese."
+    },
+    {
+      "id": "pa2",
+      "name": "White Sauce Cheesy Pasta",
+      "cat": "Pasta",
+      "group": "maggi-pasta",
+      "veg": true,
+      "price": 150,
+      "tag": "bestseller",
+      "desc": "Creamy white sauce pasta, rich with melted cheese."
+    },
+    {
+      "id": "si1",
+      "name": "Rava Idli Sambhar (4 pcs)",
+      "cat": "South Indian",
+      "group": "south",
+      "veg": true,
+      "price": 80,
+      "desc": "Steamed semolina idlis served with hot sambhar."
+    },
+    {
+      "id": "si2",
+      "name": "Rava Masala Idli (6 pcs)",
+      "cat": "South Indian",
+      "group": "south",
+      "veg": true,
+      "price": 90,
+      "desc": "Semolina idlis tempered with mustard, curry leaf and onion."
+    },
+    {
+      "id": "si3",
+      "name": "Rava Masala Cheese Idli (6 pcs)",
+      "cat": "South Indian",
+      "group": "south",
+      "veg": true,
+      "price": 120,
+      "tag": "new",
+      "desc": "Masala idli topped with a generous layer of melted cheese."
+    },
+    {
+      "id": "pb1",
+      "name": "Spl. Bombay Pav Bhaji",
+      "cat": "Pav Bhaji",
+      "group": "south",
+      "veg": true,
+      "price": 80,
+      "tag": "bestseller",
+      "desc": "Buttery mashed-vegetable bhaji with soft pav."
+    },
+    {
+      "id": "pb2",
+      "name": "Extra Butter Pav",
+      "cat": "Pav Bhaji",
+      "group": "south",
+      "veg": true,
+      "price": 20,
+      "desc": "Extra pav, extra butter."
+    },
+    {
+      "id": "f1",
+      "name": "Regular Fries",
+      "cat": "Fries",
+      "group": "snacks",
+      "veg": true,
+      "price": 80,
+      "desc": "Classic salted potato fries, golden and crisp."
+    },
+    {
+      "id": "f2",
+      "name": "Peri Peri Fries",
+      "cat": "Fries",
+      "group": "snacks",
+      "veg": true,
+      "price": 100,
+      "tag": "spicy",
+      "desc": "Fries tossed in peri peri seasoning."
+    },
+    {
+      "id": "f3",
+      "name": "Masala Fries",
+      "cat": "Fries",
+      "group": "snacks",
+      "veg": true,
+      "price": 100,
+      "desc": "Fries dusted with a tangy Indian masala."
+    },
+    {
+      "id": "f4",
+      "name": "Loaded Fries",
+      "cat": "Fries",
+      "group": "snacks",
+      "veg": true,
+      "price": 130,
+      "tag": "bestseller",
+      "desc": "Fries loaded with cheese and toppings."
+    },
+    {
+      "id": "f5",
+      "name": "Peri Peri Loaded Fries",
+      "cat": "Fries",
+      "group": "snacks",
+      "veg": true,
+      "price": 150,
+      "desc": "Peri peri fries, fully loaded with cheese and sauces."
+    },
+    {
+      "id": "po1",
+      "name": "Onion Poha",
+      "cat": "Poha",
+      "group": "south",
+      "veg": true,
+      "price": 80,
+      "desc": "Flattened rice tempered with onion, mustard and curry leaf."
+    },
+    {
+      "id": "po2",
+      "name": "Mix Veg Poha",
+      "cat": "Poha",
+      "group": "south",
+      "veg": true,
+      "price": 100,
+      "desc": "Poha loaded with mixed vegetables."
+    },
+    {
+      "id": "dr1",
+      "name": "Cold Drink (Small)",
+      "cat": "Beverages",
+      "group": "drinks",
+      "veg": true,
+      "price": 20,
+      "desc": "Chilled soft drink, small bottle/can."
+    },
+    {
+      "id": "dr2",
+      "name": "Cold Drink (Large)",
+      "cat": "Beverages",
+      "group": "drinks",
+      "veg": true,
+      "price": 50,
+      "desc": "Chilled soft drink, large bottle."
+    },
+    {
+      "id": "dr3",
+      "name": "Hell Energy Drink",
+      "cat": "Beverages",
+      "group": "drinks",
+      "veg": true,
+      "price": 60,
+      "desc": "Chilled energy drink."
+    },
+    {
+      "id": "dr4",
+      "name": "Red Bull / Monster",
+      "cat": "Beverages",
+      "group": "drinks",
+      "veg": true,
+      "price": 120,
+      "desc": "Premium energy drink, served ice-cold."
+    },
+    {
+      "id": "dr5",
+      "name": "Aam Panna Lemon Soda",
+      "cat": "Beverages",
+      "group": "drinks",
+      "veg": true,
+      "price": 60,
+      "desc": "Tangy raw-mango soda, a summer favourite."
+    },
+    {
+      "id": "dr6",
+      "name": "Namkeen Masala Lassi",
+      "cat": "Beverages",
+      "group": "drinks",
+      "veg": true,
+      "price": 60,
+      "desc": "Spiced, salted yoghurt lassi."
+    },
+    {
+      "id": "dr7",
+      "name": "Amritsari Sweet Lassi",
+      "cat": "Beverages",
+      "group": "drinks",
+      "veg": true,
+      "price": 70,
+      "tag": "bestseller",
+      "desc": "Thick, creamy, city-famous sweet lassi."
+    },
+    {
+      "id": "dr8",
+      "name": "Creamy Cold Coffee",
+      "cat": "Beverages",
+      "group": "drinks",
+      "veg": true,
+      "price": 80,
+      "desc": "Whipped cold coffee, rich and frothy."
+    },
+    {
+      "id": "sh1",
+      "name": "Vanilla Shake",
+      "cat": "Shakes",
+      "group": "drinks",
+      "veg": true,
+      "price": 80,
+      "desc": "Classic thick vanilla milkshake."
+    },
+    {
+      "id": "sh2",
+      "name": "Butterscotch Shake",
+      "cat": "Shakes",
+      "group": "drinks",
+      "veg": true,
+      "price": 80,
+      "desc": "Butterscotch crunch blended into a creamy shake."
+    },
+    {
+      "id": "sh3",
+      "name": "Strawberry Shake",
+      "cat": "Shakes",
+      "group": "drinks",
+      "veg": true,
+      "price": 80,
+      "desc": "Fresh strawberry flavour, thick and cold."
+    },
+    {
+      "id": "sh4",
+      "name": "Chocolate Shake",
+      "cat": "Shakes",
+      "group": "drinks",
+      "veg": true,
+      "price": 90,
+      "tag": "bestseller",
+      "desc": "Rich chocolate milkshake, topped with syrup."
+    },
+    {
+      "id": "sh5",
+      "name": "Oreo Shake",
+      "cat": "Shakes",
+      "group": "drinks",
+      "veg": true,
+      "price": 90,
+      "tag": "bestseller",
+      "desc": "Crushed Oreo blended into a creamy shake."
+    },
+    {
+      "id": "sh6",
+      "name": "KitKat Shake",
+      "cat": "Shakes",
+      "group": "drinks",
+      "veg": true,
+      "price": 90,
+      "desc": "KitKat chunks blended into a chocolatey shake."
+    },
+    {
+      "id": "sh7",
+      "name": "Lotus Biscoff Shake",
+      "cat": "Shakes",
+      "group": "drinks",
+      "veg": true,
+      "price": 100,
+      "tag": "new",
+      "desc": "Lotus Biscoff biscuit, blended thick and dreamy."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load menu_extras %}
+{% block title %}{{ item.name }} — Food Junction{% endblock %}
+{% block page_id %}menu{% endblock %}
+
+{% block content %}
+<header class="page-header" style="padding:150px 0 50px;">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="{% url 'menu' %}">Menu</a> / <a href="{% url 'category' item.category.slug %}">{{ item.subcategory }}</a> / {{ item.name }}
+    </div>
+  </div>
+</header>
+
+<section class="section section-tight">
+  <div class="container fd-grid">
+    <div class="fd-photo reveal">{% dish_photo item "480px" %}</div>
+    <div class="reveal">
+      <span class="eyebrow">{{ item.subcategory }}</span>
+      <h1 class="fd-title">{% veg_dot item.is_veg %} {{ item.name }}</h1>
+      <div class="fd-tags">
+        <span class="chip">{% if item.is_veg %}Vegetarian{% else %}Non-Vegetarian{% endif %}</span>
+        {% if item.tag %}<span class="chip">{{ item.get_tag_display }}</span>{% endif %}
+      </div>
+      <p class="fd-desc">{{ item.description }} Freshly prepared to order at Food Junction, using quality ingredients and hygienic kitchen practices.</p>
+
+      <form method="post" action="{% url 'cart_add' item.id %}" id="addToCartForm">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{% url 'food_detail' item.slug %}">
+
+        {% if item.has_sizes %}
+        <div class="fd-price" id="fdPrice">₹{{ item.sizes.first.price|floatformat:0 }}</div>
+        <div class="size-row">
+          {% for size in item.sizes.all %}
+          <label class="size-btn{% if forloop.first %} active{% endif %}" data-price="{{ size.price|floatformat:0 }}">
+            <input type="radio" name="size" value="{{ size.label }}" {% if forloop.first %}checked{% endif %} style="display:none;">
+            {{ size.label }} &middot; ₹{{ size.price|floatformat:0 }}
+          </label>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="fd-price" id="fdPrice">₹{{ item.price|floatformat:0 }}</div>
+        {% endif %}
+
+        <div class="qty-row">
+          <div class="qty-control">
+            <button type="button" id="qtyMinus">&minus;</button>
+            <span id="qtyVal">1</span>
+            <button type="button" id="qtyPlus">+</button>
+          </div>
+          <input type="hidden" name="qty" id="qtyInput" value="1">
+          <span style="color:var(--cream-faint);font-size:13px;">Freshly prepared per order</span>
+        </div>
+
+        <div class="fd-actions">
+          <button type="submit" class="btn btn-primary">Add to Cart</button>
+          <button type="submit" formaction="{% url 'buy_now' item.id %}" class="btn btn-gold">Buy Now</button>
+        </div>
+      </form>
+
+      <div class="fd-info-strip">
+        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 20&ndash;30 min prep</div>
+        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Serves 1</div>
+        <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.5v9L12 20l-9-4.5v-9L12 2z"/></svg> Hygienically packed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">You Might Also Like</span><h2 class="section-title">Pairs Well With</h2></div>
+    <div class="related-row">
+      {% for r in related %}
+      <article class="food-card reveal">
+        <a href="{% url 'food_detail' r.slug %}">{% dish_photo r %}</a>
+        <div class="fc-body">
+          <span class="fc-cat">{{ r.subcategory }}</span>
+          <div class="fc-top"><a href="{% url 'food_detail' r.slug %}"><h4>{% veg_dot r.is_veg %} {{ r.name }}</h4></a></div>
+          <p class="fc-desc">{{ r.description }}</p>
+          <div class="fc-bottom">
+            <span class="price-tag on-dark">{{ r|price_label }}</span>
+            <a href="{% url 'food_detail' r.slug %}" class="fc-add" title="View">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  let qty = 1;
+  const qtyVal = document.getElementById("qtyVal");
+  const qtyInput = document.getElementById("qtyInput");
+  const priceBox = document.getElementById("fdPrice");
+  const sizeBtns = document.querySelectorAll(".size-btn");
+
+  function currentUnitPrice(){
+    const active = document.querySelector(".size-btn.active");
+    return active ? parseFloat(active.dataset.price) : parseFloat(priceBox.textContent.replace("₹",""));
+  }
+  function updatePrice(){
+    if (sizeBtns.length){
+      const active = document.querySelector(".size-btn.active");
+      priceBox.textContent = "₹" + (parseFloat(active.dataset.price) * qty);
+    } else {
+      const base = {{ item.price|default:0 }};
+      priceBox.textContent = "₹" + (base * qty);
+    }
+  }
+  document.getElementById("qtyMinus").addEventListener("click", function(){
+    qty = Math.max(1, qty - 1); qtyVal.textContent = qty; qtyInput.value = qty; updatePrice();
+  });
+  document.getElementById("qtyPlus").addEventListener("click", function(){
+    qty += 1; qtyVal.textContent = qty; qtyInput.value = qty; updatePrice();
+  });
+  sizeBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      sizeBtns.forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      btn.querySelector("input").checked = true;
+      updatePrice();
+    });
+  });
+});
+</script>
+{% endblock %}

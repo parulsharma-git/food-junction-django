@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load menu_extras %}
+{% block title %}{{ category.name }} — Food Junction{% endblock %}
+{% block page_id %}menu{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">{{ category.tagline }}</span>
+    <h1 class="section-title">{{ category.name }}</h1>
+    <p class="section-desc">{{ category.items.count }} dishes</p>
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a> / <a href="{% url 'menu' %}">Menu</a> / {{ category.name }}</div>
+  </div>
+</header>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="chip-row">
+      {% for cat in categories %}
+      <a href="{% url 'category' cat.slug %}" class="chip{% if cat.slug == category.slug %} active{% endif %}">{{ cat.name }}</a>
+      {% endfor %}
+    </div>
+
+    {% for section in sections %}
+    <div class="cat-showcase reveal">
+      <div class="cat-showcase-photo">{% cat_photo category.slug section.subcategory %}</div>
+      <div class="cat-showcase-body">
+        <div class="cat-showcase-head">
+          <h3>{{ section.subcategory }}</h3>
+          <span class="cat-showcase-count">{{ section.items|length }} option{{ section.items|length|pluralize }}</span>
+        </div>
+        <ul class="cat-showcase-list">
+          {% for item in section.items %}
+          <li class="cs-row">
+            <div class="cs-row-main">
+              {% veg_dot item.is_veg %}
+              <div>
+                <a href="{% url 'food_detail' item.slug %}"><h4>{{ item.name }}</h4></a>
+                <p>{{ item.description }}</p>
+              </div>
+            </div>
+            <div class="cs-row-actions">
+              <span class="price-tag on-dark">{{ item|price_label }}</span>
+              <form method="post" action="{% url 'cart_add' item.id %}">
+                {% csrf_token %}<input type="hidden" name="next" value="{% url 'category' category.slug %}">
+                <button class="fc-add" title="Add to cart" type="submit">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </form>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

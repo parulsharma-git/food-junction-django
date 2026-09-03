@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Checkout — Food Junction{% endblock %}
+{% block page_id %}cart{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Almost There</span>
+    <h1 class="section-title">Checkout</h1>
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a> / <a href="{% url 'cart' %}">Cart</a> / Checkout</div>
+  </div>
+</header>
+
+<section class="section section-tight">
+  <div class="container cart-layout">
+    <form method="post" action="{% url 'checkout' %}">
+      {% csrf_token %}
+      <div class="contact-card" style="margin-bottom:24px;">
+        <h3 style="font-size:19px;margin-bottom:22px;">Delivery Details</h3>
+        <div class="form-grid">
+          <div class="form-field"><label>Full Name *</label><input type="text" name="name" required placeholder="Your name"></div>
+          <div class="form-field"><label>Phone Number *</label><input type="tel" name="phone" required placeholder="98884-79567" pattern="[0-9+\-\s]{10,15}"></div>
+          <div class="form-field full"><label>Delivery Address *</label><textarea name="address" required placeholder="House no., street, city, pincode"></textarea></div>
+          <div class="form-field"><label>Landmark (optional)</label><input type="text" name="landmark" placeholder="e.g. near ABC school"></div>
+          <div class="form-field"><label>Order Note (optional)</label><input type="text" name="note" placeholder="e.g. less spicy, ring the bell"></div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3 style="font-size:19px;margin-bottom:6px;">Payment Method</h3>
+        <p style="color:var(--cream-faint);font-size:12.5px;margin-bottom:18px;">Demo checkout — no real payment is processed yet.</p>
+        <div class="pay-options">
+          <label class="pay-option active" data-pay="cod">
+            <input type="radio" name="payment_method" value="cod" checked style="display:none;">
+            <span class="radio"></span>
+            <div><strong>Cash on Delivery</strong><span>Pay when your order arrives</span></div>
+          </label>
+          <label class="pay-option" data-pay="online">
+            <input type="radio" name="payment_method" value="online" style="display:none;">
+            <span class="radio"></span>
+            <div><strong>Online Payment</strong><span>UPI / Card (UI demo only)</span></div>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" {% if not lines %}disabled{% endif %}>Place Order</button>
+      </div>
+    </form>
+
+    <div class="summary-card">
+      <h3>Order Summary</h3>
+      {% if not lines %}
+      <p style="color:var(--cream-dim)">Your cart is empty. <a href="{% url 'menu' %}" style="color:var(--gold-bright)">Browse the menu</a> to add items.</p>
+      {% else %}
+      <div style="max-height:260px;overflow-y:auto;margin:16px 0;">
+        {% for line in lines %}
+        <div class="summary-row"><span>{{ line.qty }} &times; {{ line.name }}{% if line.size_label %} ({{ line.size_label }}){% endif %}</span><span>₹{{ line.line_total|floatformat:0 }}</span></div>
+        {% endfor %}
+      </div>
+      <div class="summary-row"><span>Subtotal</span><span>₹{{ totals.subtotal|floatformat:0 }}</span></div>
+      {% if totals.discount %}
+      <div class="summary-row"><span>Discount</span><span>&minus;₹{{ totals.discount|floatformat:0 }}</span></div>
+      {% endif %}
+      <div class="summary-row"><span>Delivery</span><span>{% if totals.delivery == 0 %}Free{% else %}₹{{ totals.delivery|floatformat:0 }}{% endif %}</span></div>
+      <div class="summary-row total"><span>Total Payable</span><span>₹{{ totals.total|floatformat:0 }}</span></div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.querySelectorAll(".pay-option").forEach(function(opt){
+  opt.addEventListener("click", function(){
+    document.querySelectorAll(".pay-option").forEach(o=>o.classList.remove("active"));
+    opt.classList.add("active");
+    opt.querySelector("input").checked = true;
+  });
+});
+</script>
+{% endblock %}

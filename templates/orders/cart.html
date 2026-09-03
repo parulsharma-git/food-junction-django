@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load menu_extras %}
+{% block title %}Your Cart — Food Junction{% endblock %}
+{% block page_id %}cart{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Review &amp; Checkout</span>
+    <h1 class="section-title">Your Cart</h1>
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a> / Cart</div>
+  </div>
+</header>
+
+<section class="section section-tight">
+  <div class="container">
+
+    {% if not lines %}
+    <div class="empty-cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      <h3 style="font-size:24px;">Your cart is empty</h3>
+      <p style="color:var(--cream-dim);margin-top:10px;">Looks like you haven't added anything yet.</p>
+      <a href="{% url 'menu' %}" class="btn btn-primary" style="margin-top:26px;">Browse the Menu</a>
+    </div>
+    {% else %}
+    <div class="cart-layout">
+      <div>
+        {% for line in lines %}
+        <div class="cart-line">
+          <div class="cl-photo">{% if line.food_item %}{% dish_photo line.food_item %}{% endif %}</div>
+          <div class="cl-info">
+            <h4>{% veg_dot line.is_veg %} {{ line.name }}</h4>
+            <div class="meta">{% if line.size_label %}{{ line.size_label }} &middot; {% endif %}₹{{ line.unit_price|floatformat:0 }} each</div>
+          </div>
+          <div class="cl-controls">
+            <form method="post" action="{% url 'cart_update' %}" style="display:flex;">
+              {% csrf_token %}
+              <input type="hidden" name="key" value="{{ line.key }}">
+              <div class="cart-qty">
+                <button type="submit" name="qty" value="{{ line.qty|add:"-1" }}">&minus;</button>
+                <span>{{ line.qty }}</span>
+                <button type="submit" name="qty" value="{{ line.qty|add:"1" }}">+</button>
+              </div>
+            </form>
+            <strong class="price-tag on-dark">₹{{ line.line_total|floatformat:0 }}</strong>
+            <form method="post" action="{% url 'cart_remove' %}">
+              {% csrf_token %}
+              <input type="hidden" name="key" value="{{ line.key }}">
+              <button type="submit" class="cart-remove" title="Remove">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0l-1 14a2 2 0 01-2 2H7a2 2 0 01-2-2L4 6h16z"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="summary-card">
+        <h3>Order Summary</h3>
+        <form method="post" action="{% url 'cart_promo' %}" class="promo-row">
+          {% csrf_token %}
+          <input type="text" name="code" placeholder="Promo code (try FRESH10)" value="{{ totals.promo_code }}">
+          <button class="btn btn-ghost btn-sm" type="submit">Apply</button>
+        </form>
+        <div class="summary-row"><span>Subtotal</span><span>₹{{ totals.subtotal|floatformat:0 }}</span></div>
+        {% if totals.discount %}
+        <div class="summary-row"><span>Discount ({{ totals.promo_code }})</span><span>&minus;₹{{ totals.discount|floatformat:0 }}</span></div>
+        {% endif %}
+        <div class="summary-row"><span>Delivery</span><span>{% if totals.delivery == 0 %}Free{% else %}₹{{ totals.delivery|floatformat:0 }}{% endif %}</span></div>
+        {% if totals.subtotal > 0 and totals.free_delivery_gap > 0 %}
+        <div class="summary-row" style="font-size:12px;color:var(--gold-bright)"><span>Add ₹{{ totals.free_delivery_gap|floatformat:0 }} more for free delivery</span></div>
+        {% endif %}
+        <div class="summary-row total"><span>Total</span><span>₹{{ totals.total|floatformat:0 }}</span></div>
+        <a href="{% url 'checkout' %}" class="btn btn-primary btn-block" style="margin-top:22px;">Proceed to Checkout</a>
+        <a href="{% url 'menu' %}" class="btn btn-ghost btn-block" style="margin-top:12px;">Add More Items</a>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+{% endblock %}

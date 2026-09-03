@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load menu_extras %}
+{% block title %}Full Menu — Food Junction{% endblock %}
+{% block page_id %}menu{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">The Full Board</span>
+    <h1 class="section-title">Our Menu</h1>
+    <p class="section-desc" style="max-width:560px;">140+ dishes across paranthas, wraps, momos, burgers, pizza, sandwiches, snacks and more — search, filter and add straight to your cart.</p>
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a> / Menu</div>
+  </div>
+</header>
+
+<section class="section section-tight">
+  <div class="container">
+    <form method="get" action="{% url 'menu' %}">
+      <div class="menu-toolbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <input type="text" name="q" value="{{ query }}" placeholder="Search dishes, e.g. paneer, pizza, momos...">
+        </div>
+        <div class="veg-filter">
+          <a href="?q={{ query }}&g={{ active_group }}&veg={% if veg_only %}0{% else %}1{% endif %}" class="pill-toggle{% if veg_only %} active{% endif %}">
+            <span class="veg-dot"></span> Veg Only
+          </a>
+        </div>
+      </div>
+      <div class="chip-row">
+        <button type="submit" name="g" value="" class="chip{% if not active_group %} active{% endif %}">All</button>
+        {% for cat in categories %}
+        <button type="submit" name="g" value="{{ cat.slug }}" class="chip{% if active_group == cat.slug %} active{% endif %}">{{ cat.name }}</button>
+        {% endfor %}
+      </div>
+    </form>
+
+    {% if not sections %}
+    <div class="empty-state"><h3>No dishes found</h3><p>Try a different search or filter.</p></div>
+    {% endif %}
+
+    {% for section in sections %}
+    <div class="cat-showcase reveal">
+      <div class="cat-showcase-photo">{% cat_photo section.category.slug section.subcategory %}</div>
+      <div class="cat-showcase-body">
+        <div class="cat-showcase-head">
+          <h3>{{ section.subcategory }}</h3>
+          <span class="cat-showcase-count">{{ section.items|length }} option{{ section.items|length|pluralize }}</span>
+        </div>
+        <ul class="cat-showcase-list">
+          {% for item in section.items %}
+          <li class="cs-row">
+            <div class="cs-row-main">
+              {% veg_dot item.is_veg %}
+              <div>
+                <a href="{% url 'food_detail' item.slug %}"><h4>{{ item.name }}</h4></a>
+                <p>{{ item.description }}</p>
+              </div>
+            </div>
+            <div class="cs-row-actions">
+              <span class="price-tag on-dark">{{ item|price_label }}</span>
+              <form method="post" action="{% url 'cart_add' item.id %}">
+                {% csrf_token %}<input type="hidden" name="next" value="{% url 'menu' %}">
+                <button class="fc-add" title="Add to cart" type="submit">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </form>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

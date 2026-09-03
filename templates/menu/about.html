@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load menu_extras %}
+{% block title %}About Us — Food Junction{% endblock %}
+{% block page_id %}about{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <div class="container">
+    <span class="eyebrow">Our Story</span>
+    <h1 class="section-title">Fresh. Tasty. Hygienic.</h1>
+    <p class="section-desc" style="max-width:560px;">Three words on our board, and a promise in every dish we send out.</p>
+    <div class="breadcrumb"><a href="{% url 'home' %}">Home</a> / About</div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container about-grid">
+    <div class="reveal-scale">
+      {% if hero_dish %}{% dish_photo hero_dish "460px" %}{% endif %}
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Since Day One</span>
+      <h2 class="section-title" style="font-size:2.4rem;">A kitchen built on trust</h2>
+      <p class="section-desc">Food Junction opened in New Pawan Nagar, Amritsar, with a simple idea — fast food doesn't have to mean careless food. Every parantha is hand-rolled, every burger patty pressed to order, and every kitchen surface cleaned before the next ticket comes in.</p>
+      <p class="section-desc">Today we run a menu of over 140 dishes spanning North Indian breakfast classics, Indo-Chinese momos, stacked burgers, stone-baked pizza and hand-blended shakes — all cooked fresh, never pre-made, and available for takeaway or delivery through Zomato and Swiggy.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--charcoal-2);">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">What We Stand For</span>
+      <h2 class="section-title">Our Values</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card reveal">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span>
+        <h4>Fresh, Always</h4>
+        <p style="color:var(--cream-dim);font-size:14px;margin-top:8px;">Nothing is pre-cooked or reheated. Every order goes straight from prep to pan to plate.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <h4>Hygiene First</h4>
+        <p style="color:var(--cream-dim);font-size:14px;margin-top:8px;">Gloved prep, sealed packaging and a kitchen that's cleaned between every shift.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21c-4.4-2.7-8-6.5-8-11a5 5 0 0110-1 5 5 0 0110 1c0 4.5-3.6 8.3-8 11z"/></svg></span>
+        <h4>Made With Care</h4>
+        <p style="color:var(--cream-dim);font-size:14px;margin-top:8px;">From the chef's hands to your table — recipes we'd happily feed our own families.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The Journey</span>
+      <h2 class="section-title">How Far We've Come</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-row reveal">
+        <div class="yr">Year 1</div>
+        <div class="dotcol"><div class="d"></div><div class="l"></div></div>
+        <div class="tx"><h5>A Small Tawa Counter</h5><p>Food Junction opens as a compact takeaway counter on Batala Road, serving paranthas and chilla.</p></div>
+      </div>
+      <div class="timeline-row reveal">
+        <div class="yr">Year 2</div>
+        <div class="dotcol"><div class="d"></div><div class="l"></div></div>
+        <div class="tx"><h5>Menu Expands</h5><p>Wraps, momos, burgers and sandwiches join the board as demand grows across the neighbourhood.</p></div>
+      </div>
+      <div class="timeline-row reveal">
+        <div class="yr">Year 3</div>
+        <div class="dotcol"><div class="d"></div><div class="l"></div></div>
+        <div class="tx"><h5>Stone-Baked Pizza</h5><p>A dedicated pizza oven is added, and combo meals become a customer favourite.</p></div>
+      </div>
+      <div class="timeline-row reveal">
+        <div class="yr">Today</div>
+        <div class="dotcol"><div class="d"></div></div>
+        <div class="tx"><h5>10,000+ Orders Served</h5><p>Now live on Zomato and Swiggy, with a loyal base of regulars across Amritsar.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section final-cta" style="background:var(--charcoal-2);">
+  <div class="container reveal-scale">
+    <span class="eyebrow" style="justify-content:center;">Come Say Hello</span>
+    <h2 style="margin-top:16px;">Visit us on Batala Road,<br>or order to your door.</h2>
+    <div class="hero-cta" style="justify-content:center;margin-top:34px;">
+      <a href="{% url 'menu' %}" class="btn btn-primary">View Menu</a>
+      <a href="{% url 'contact' %}" class="btn btn-ghost">Get Directions</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

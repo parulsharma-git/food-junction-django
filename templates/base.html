@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Food Junction — Good Food. Great Mood.{% endblock %}</title>
+<meta name="description" content="Fresh, tasty and hygienic food in Amritsar. Paranthas, wraps, momos, burgers, pizza and more — order for takeaway or delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block extra_head %}{% endblock %}
+</head>
+<body data-page="{% block page_id %}{% endblock %}">
+<div class="grain"></div>
+
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <a href="{% url 'home' %}" class="brand">
+      <span class="brand-mark">FJ</span>
+      <span class="brand-text"><span class="fj-fresh">Fresh &middot; Tasty &middot; Hygienic</span><span class="fj-name">Food Junction</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="{% url 'home' %}" data-nav="home">Home</a>
+      <a href="{% url 'menu' %}" data-nav="menu">Menu</a>
+      <a href="{% url 'offers' %}" data-nav="offers">Offers</a>
+      <a href="{% url 'about' %}" data-nav="about">About</a>
+      <a href="{% url 'contact' %}" data-nav="contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="{% url 'cart' %}" class="icon-btn" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+        <span class="cart-count" style="display:{% if cart_count > 0 %}flex{% else %}none{% endif %}">{{ cart_count }}</span>
+      </a>
+      <a href="tel:9888479567" class="btn-order">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.34 1.79.66 2.65a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.43-1.43a2 2 0 012.11-.45c.86.32 1.75.54 2.65.66A2 2 0 0122 16.92z"/></svg>
+        Order Now
+      </a>
+      <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="{% url 'home' %}" data-nav="home">Home</a>
+  <a href="{% url 'menu' %}" data-nav="menu">Menu</a>
+  <a href="{% url 'offers' %}" data-nav="offers">Offers</a>
+  <a href="{% url 'about' %}" data-nav="about">About</a>
+  <a href="{% url 'contact' %}" data-nav="contact">Contact</a>
+  <a href="{% url 'cart' %}" data-nav="cart">Cart</a>
+  <a href="tel:9888479567" class="btn-order">Call to Order</a>
+</div>
+
+{% if messages %}
+<div id="djMessages" style="display:none;">
+  {% for message in messages %}<span data-tag="{{ message.tags }}">{{ message }}</span>{% endfor %}
+</div>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="{% url 'home' %}" class="brand">
+          <span class="brand-mark">FJ</span>
+          <span class="brand-text"><span class="fj-fresh">Fresh &middot; Tasty &middot; Hygienic</span><span class="fj-name">Food Junction</span></span>
+        </a>
+        <p>Tasty, healthy and hygienic food made fresh to order. Good food, great mood — every single time.</p>
+        <div class="footer-social">
+          <a href="#" class="icon-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" class="icon-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" class="icon-btn" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="{% url 'menu' %}">Full Menu</a>
+        <a href="{% url 'offers' %}">Offers</a>
+        <a href="{% url 'about' %}">Our Story</a>
+        <a href="{% url 'contact' %}">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h5>Categories</h5>
+        {% for cat in nav_categories|slice:":4" %}
+        <a href="{% url 'category' cat.slug %}">{{ cat.name }}</a>
+        {% endfor %}
+      </div>
+      <div class="footer-col">
+        <h5>Visit Us</h5>
+        <p>21/21, New Pawan Nagar, Batala Road, Amritsar &ndash; 143001</p>
+        <p>98884&ndash;79567 &middot; 79865&ndash;21422</p>
+        <p>Open Daily &middot; 11:00 AM &ndash; 1:00 AM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="fjYear"></span> Food Junction. All rights reserved.</span>
+      <span>Takeaway Only &middot; Also on Zomato &amp; Swiggy</span>
+    </div>
+  </div>
+</footer>
+<div id="toast"></div>
+
+<script src="{% static 'js/main.js' %}"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>

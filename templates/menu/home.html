@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% load menu_extras %}
+{% block title %}Food Junction — Good Food. Great Mood.{% endblock %}
+{% block page_id %}home{% endblock %}
+
+{% block content %}
+<header class="hero hero-centered">
+  <div class="hero-grid"></div>
+  <div class="container hero-inner hero-inner--center">
+    <div class="hero-copy">
+      <span class="eyebrow" style="justify-content:center;">Amritsar's Favourite Takeaway</span>
+      <h1 class="hero-title">Welcome to<span class="accent">Food Junction</span></h1>
+      <p class="hero-sub">&ldquo;Good Food. Great Mood.&rdquo;</p>
+      <p class="hero-desc">Hand-rolled paranthas, tandoor-fresh wraps, stacked burgers and stone-baked pizza — cooked fresh, served fast. Tasty, healthy and hygienic, every single order.</p>
+      <div class="hero-cta">
+        <a href="{% url 'menu' %}" class="btn btn-primary">Explore Menu</a>
+        <a href="tel:9888479567" class="btn btn-ghost">Call &amp; Order — 98884-79567</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>140+</strong><span>Menu Items</span></div>
+        <div><strong>11AM&ndash;1AM</strong><span>Open Daily</span></div>
+        <div><strong>4.8&#9733;</strong><span>Customer Rating</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><span class="scroll-line"></span></div>
+</header>
+
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2 class="section-title">Street-food soul,<br>restaurant-grade care.</h2>
+      <p class="section-desc">Food Junction started with one promise: fresh ingredients, honest recipes and a kitchen you could trust. From aloo paranthas at breakfast to loaded pizzas at midnight, every dish is cooked to order in New Pawan Nagar, Amritsar — never pre-made, never reheated.</p>
+      <div class="stat-grid">
+        <div class="stat-card"><strong>140+</strong><span>Dishes</span></div>
+        <div class="stat-card"><strong>10K+</strong><span>Orders Served</span></div>
+        <div class="stat-card"><strong>14 Hrs</strong><span>Daily, Fresh</span></div>
+      </div>
+      <a href="{% url 'about' %}" class="btn btn-ghost" style="margin-top:34px;">Read Our Full Story</a>
+    </div>
+    <div class="reveal-scale">
+      {% if about_dish %}{% dish_photo about_dish "460px" %}{% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--charcoal-2);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Chef's Picks</span>
+      <h2 class="section-title">Signature Dishes</h2>
+      <p class="section-desc">The dishes our regulars order on repeat — bold flavour, generous portions, plated fast.</p>
+    </div>
+    <div class="signature-grid">
+      {% for item in signature_items %}
+      <div class="signature-card reveal-scale">
+        <a href="{% url 'food_detail' item.slug %}">{% dish_photo item %}</a>
+        <div class="signature-body">
+          <div>
+            <h4>{% veg_dot item.is_veg %} {{ item.name }}</h4>
+            <div class="meta">{{ item.subcategory }}</div>
+          </div>
+          <span class="price-tag">{{ item|price_label }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Browse the Board</span>
+      <h2 class="section-title">Every Craving, Covered</h2>
+      <p class="section-desc">Ten categories, one hundred and forty dishes — from tandoor to tawa to deep fryer.</p>
+    </div>
+    <div class="cat-grid">
+      {% for cat in categories %}
+      <a href="{% url 'category' cat.slug %}" class="cat-tile reveal">
+        <span class="cat-glow"></span>
+        <span class="cat-icon">{% cat_icon cat.slug %}</span>
+        <div><h4>{{ cat.name }}</h4><p>{{ cat.tagline }}</p></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--charcoal-2);">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Crowd Favourites</span>
+      <h2 class="section-title">Popular Right Now</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="popular-scroller">
+      {% for item in popular_items %}
+      <article class="food-card reveal">
+        <a href="{% url 'food_detail' item.slug %}">{% dish_photo item %}</a>
+        <div class="fc-body">
+          <span class="fc-cat">{{ item.subcategory }}</span>
+          <div class="fc-top"><a href="{% url 'food_detail' item.slug %}"><h4>{% veg_dot item.is_veg %} {{ item.name }}</h4></a></div>
+          <p class="fc-desc">{{ item.description }}</p>
+          <div class="fc-bottom">
+            <span class="price-tag on-dark">{{ item|price_label }}</span>
+            <form method="post" action="{% url 'cart_add' item.id %}">
+              {% csrf_token %}<input type="hidden" name="next" value="{% url 'home' %}">
+              <button class="fc-add" title="Add to cart" type="submit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Fresh Off The Tawa</span>
+      <h2 class="section-title">Food Gallery</h2>
+    </div>
+    <div class="gallery-grid">
+      {% for item in gallery_items %}
+      <div class="{% cycle '' 'g-tall' '' 'g-wide' '' '' 'g-tall' '' 'g-wide' '' %}">{% dish_photo item %}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-tight">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Why Food Junction</span>
+      <h2 class="section-title">Cooked Fresh. Served Fast.</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-card reveal">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span>
+        <h4>Fresh, Always</h4>
+        <p style="color:var(--cream-dim);font-size:14px;margin-top:8px;">Nothing pre-cooked or reheated — every order goes straight from prep to pan to plate.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>
+        <h4>Hygiene First</h4>
+        <p style="color:var(--cream-dim);font-size:14px;margin-top:8px;">Gloved prep, sealed packaging and a kitchen cleaned between every single shift.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+        <h4>20&ndash;30 Min</h4>
+        <p style="color:var(--cream-dim);font-size:14px;margin-top:8px;">Fast turnaround without cutting corners — hot food, on time, every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--charcoal-2);">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">What Amritsar Says</span>
+      <h2 class="section-title">Loved by Regulars</h2>
+    </div>
+    <div class="review-track">
+      <div class="review-card reveal">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"The paneer parantha combo is unmatched — thick curd, real Amul butter, and the parantha is always hot off the tawa."</p>
+        <div class="review-who"><span class="review-avatar">R</span><div><strong>Ritika Sharma</strong><span>Batala Road, Amritsar</span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Ordered the loaded chicken pizza on Swiggy thrice this month. Consistent, hot, and genuinely loaded — not just in name."</p>
+        <div class="review-who"><span class="review-avatar">A</span><div><strong>Arjun Mehta</strong><span>New Pawan Nagar</span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Best momos in the area, hands down. The kurkure ones with the fiery chutney are dangerously addictive."</p>
+        <div class="review-who"><span class="review-avatar">S</span><div><strong>Simran Kaur</strong><span>Amritsar</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Find Us</span>
+      <h2 class="section-title">Visit or Order In</h2>
+    </div>
+    <div class="location-grid">
+      <div class="map-frame reveal">
+        <iframe src="https://maps.google.com/maps?q=Batala%20Road%2C%20Amritsar&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy" title="Food Junction location"></iframe>
+      </div>
+      <div class="info-card reveal">
+        <div class="info-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><h5>Address</h5><p>21/21, New Pawan Nagar, Batala Road, Amritsar &ndash; 143001</p></div>
+        </div>
+        <div class="info-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.9.34 1.79.66 2.65a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.43-1.43a2 2 0 012.11-.45c.86.32 1.75.54 2.65.66A2 2 0 0122 16.92z"/></svg></span>
+          <div><h5>Phone</h5><p>98884-79567 &middot; 79865-21422</p></div>
+        </div>
+        <div class="info-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div><h5>Timing</h5><p>Open daily, 11:00 AM &ndash; 1:00 AM</p></div>
+        </div>
+        <div class="info-row">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+          <div><h5>Also On</h5><p>Zomato &amp; Swiggy &middot; Takeaway Only</p></div>
+        </div>
+        <a href="{% url 'contact' %}" class="btn btn-gold btn-block">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section final-cta">
+  <div class="container reveal-scale">
+    <span class="eyebrow" style="justify-content:center;">Hungry Already?</span>
+    <h2 style="margin-top:16px;">Your next favourite meal<br>is one tap away.</h2>
+    <div class="hero-cta" style="justify-content:center;margin-top:34px;">
+      <a href="{% url 'menu' %}" class="btn btn-primary">Order Now</a>
+      <a href="tel:9888479567" class="btn btn-ghost">Call 98884-79567</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
