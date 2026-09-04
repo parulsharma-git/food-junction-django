@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load menu_extras %}
-{% block title %}{{ item.name }} — Food Junction{% endblock %}
+{% block title %}{{ item.name }} — Fresh Food Junction{% endblock %}
 {% block page_id %}menu{% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@
         <span class="chip">{% if item.is_veg %}Vegetarian{% else %}Non-Vegetarian{% endif %}</span>
         {% if item.tag %}<span class="chip">{{ item.get_tag_display }}</span>{% endif %}
       </div>
-      <p class="fd-desc">{{ item.description }} Freshly prepared to order at Food Junction, using quality ingredients and hygienic kitchen practices.</p>
+      <p class="fd-desc">{{ item.description }} Freshly prepared to order at Fresh Food Junction, using quality ingredients and hygienic kitchen practices.</p>
 
       <form method="post" action="{% url 'cart_add' item.id %}" id="addToCartForm">
         {% csrf_token %}
