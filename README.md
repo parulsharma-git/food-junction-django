@@ -112,12 +112,3 @@ The application stores and manages:
 When a customer places an order, the order and its items are stored in the database and can be viewed through the Django Admin.
 
 ---
-
-## 👨‍💼 Django Admin
-
-The project includes a Django Admin panel for business management.
-
-Admin URL when running locally:
-
-```text
-http://127.0.0.1:8000/admin/
